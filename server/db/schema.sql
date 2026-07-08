@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS laptops (
   review_count  INTEGER DEFAULT 0,
   in_stock      BOOLEAN DEFAULT true,
   stock         INTEGER DEFAULT 0,
+  images        TEXT[] DEFAULT '{}',
   created_at    TIMESTAMPTZ DEFAULT NOW(),
   updated_at    TIMESTAMPTZ DEFAULT NOW()
 );
@@ -83,3 +84,17 @@ CREATE INDEX IF NOT EXISTS idx_laptops_featured ON laptops(featured) WHERE featu
 CREATE INDEX IF NOT EXISTS idx_laptops_flash_sale ON laptops(flash_sale) WHERE flash_sale = true;
 CREATE INDEX IF NOT EXISTS idx_reservations_status ON reservations(status);
 CREATE INDEX IF NOT EXISTS idx_reservations_laptop_id ON reservations(laptop_id);
+
+CREATE TABLE IF NOT EXISTS site_sections (
+  id            SERIAL PRIMARY KEY,
+  section_type  VARCHAR(50) NOT NULL DEFAULT 'banner',
+  title         VARCHAR(200) NOT NULL DEFAULT '',
+  subtitle      VARCHAR(500) NOT NULL DEFAULT '',
+  content       TEXT NOT NULL DEFAULT '',
+  link_url      VARCHAR(500) NOT NULL DEFAULT '',
+  link_text     VARCHAR(200) NOT NULL DEFAULT '',
+  is_active     BOOLEAN DEFAULT true,
+  sort_order    INTEGER DEFAULT 0,
+  created_at    TIMESTAMPTZ DEFAULT NOW(),
+  updated_at    TIMESTAMPTZ DEFAULT NOW()
+);

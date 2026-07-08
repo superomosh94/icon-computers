@@ -1,7 +1,7 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
-import { shop } from '../../data/shop';
-import laptops from '../../data/laptops';
+import { shop } from '../../lib/config';
+import * as api from '../../lib/api';
 import { SearchIcon, PhoneIcon } from '../ui/Icons';
 import './Header.css';
 
@@ -11,22 +11,25 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [search, setSearch] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [suggestions, setSuggestions] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
   const searchRef = useRef(null);
 
   const recentSearches = JSON.parse(localStorage.getItem(RECENT_SEARCHES_KEY) || '[]');
 
-  const suggestions = search.trim()
-    ? laptops
-        .filter(l => {
-          const q = search.toLowerCase();
-          return l.brand.toLowerCase().includes(q) ||
-                 l.model.toLowerCase().includes(q) ||
-                 l.cpuFull.toLowerCase().includes(q);
-        })
-        .slice(0, 5)
-    : [];
+  useEffect(() => {
+    if (search.trim()) {
+      const timer = setTimeout(() => {
+        api.getLaptops({ search, all: 'true', limit: '5' }).then(data => {
+          setSuggestions(data.laptops);
+        }).catch(() => setSuggestions([]));
+      }, 300);
+      return () => clearTimeout(timer);
+    } else {
+      setSuggestions([]);
+    }
+  }, [search]);
 
   useEffect(() => {
     const handleClickOutside = (e) => {

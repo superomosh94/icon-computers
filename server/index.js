@@ -13,6 +13,7 @@ import laptopsRouter from './routes/laptops.js';
 import reservationsRouter from './routes/reservations.js';
 import contactRouter from './routes/contact.js';
 import authRouter from './routes/auth.js';
+import sectionsRouter from './routes/sections.js';
 import uploadRouter from './routes/upload.js';
 import { errorHandler } from './middleware/errorHandler.js';
 
@@ -70,6 +71,7 @@ app.use('/api/laptops', laptopsRouter);
 app.use('/api/reservations', reservationsRouter);
 app.use('/api/contact', contactRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/sections', sectionsRouter);
 app.use('/api/upload', uploadRouter);
 
 // Health check

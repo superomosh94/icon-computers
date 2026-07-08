@@ -67,11 +67,11 @@ const Icons = {
 const navItems = [
   { to: '/admin', label: 'Dashboard', icon: 'Dashboard', end: true },
   { to: '/admin/products', label: 'Products', icon: 'Products' },
+  { to: '/admin/reservations', label: 'Reservations', icon: 'Dashboard' },
   { to: '/admin/best-deals', label: 'Best Deals', icon: 'BestDeals' },
-  { to: '/admin/flash-sales', label: 'Flash Sales', icon: 'FlashSales' },
+  { to: '/admin/sections', label: 'Sections', icon: 'Dashboard' },
   { to: '/admin/site-content', label: 'Site Content', icon: 'SiteContent' },
   { to: '/admin/shop-settings', label: 'Shop Settings', icon: 'Settings' },
-
 ];
 
 export default function AdminLayout() {
@@ -90,7 +90,7 @@ export default function AdminLayout() {
     navigate('/admin/login');
   };
 
-  if (checking) return null;
+  if (checking) return <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', color: 'var(--color-text-secondary)' }}><div className="spinner" /></div>;
 
   const closeSidebar = () => setSidebarOpen(false);
 

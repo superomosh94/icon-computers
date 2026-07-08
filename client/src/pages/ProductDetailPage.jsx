@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { shop } from '../data/shop';
+import { shop } from '../lib/config';
 import * as api from '../lib/api';
 import ImageGallery from '../components/laptop/ImageGallery';
 import SpecsTable from '../components/laptop/SpecsTable';
+import BatteryGauge from '../components/ui/BatteryGauge';
+import RefurbReport from '../components/laptop/RefurbReport';
 import Badge from '../components/ui/Badge';
 import InTheBox from '../components/laptop/InTheBox';
+import ReserveModal from '../components/ReserveModal';
 import LaptopCard from '../components/laptop/LaptopCard';
 import { CheckIcon, WhatsAppIcon, PhoneIcon } from '../components/ui/Icons';
 import './ProductDetailPage.css';
@@ -16,6 +19,7 @@ export default function ProductDetailPage() {
   const [related, setRelated] = useState([]);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const [reserveOpen, setReserveOpen] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -24,23 +28,11 @@ export default function ProductDetailPage() {
     api.getLaptopBySlug(slug)
       .then(data => {
         setLaptop(data.laptop);
-        // Fetch related laptops
         api.getLaptops({ brand: data.laptop.brand, all: 'true' }).then(r => {
           setRelated(r.laptops.filter(l => l.id !== data.laptop.id).slice(0, 4));
         }).catch(() => {});
       })
-      .catch(() => {
-        // Fallback: find in mock data
-        import('../data/laptops').then(m => {
-          const found = m.default.find(l => l.slug === slug);
-          if (found) {
-            setLaptop(found);
-            setRelated(m.default.filter(l => l.brand === found.brand && l.id !== found.id).slice(0, 4));
-          } else {
-            setNotFound(true);
-          }
-        });
-      })
+      .catch(() => setNotFound(true))
       .finally(() => setLoading(false));
   }, [slug]);
 
@@ -124,11 +116,11 @@ export default function ProductDetailPage() {
             </div>
 
             <div className="detail-pricing">
-              <span className="detail-price">KSh {laptop.price.toLocaleString()}</span>
+              <span className="detail-price-now">KSh {laptop.price.toLocaleString()}</span>
               {laptop.originalPrice && (
                 <>
                   <span className="detail-original">KSh {laptop.originalPrice.toLocaleString()}</span>
-                  <span className="save-badge" style={{ fontSize: 'var(--font-size-sm)', padding: '4px 10px' }}>
+                  <span className="save-badge">
                     Save KSh {savings.toLocaleString()} ({savingsPercent}%)
                   </span>
                 </>
@@ -142,9 +134,12 @@ export default function ProductDetailPage() {
               <span className="detail-chip">{laptop.screenSize}</span>
             </div>
 
-            <div className="detail-grade-row">
-              <span className="detail-label">Condition</span>
-              <Badge>{laptop.grade}</Badge>
+            <div className="detail-badges">
+              <div className="detail-grade-box">
+                <span className="detail-label">Condition</span>
+                <Badge>{laptop.grade}</Badge>
+              </div>
+              <BatteryGauge health={laptop.batteryHealth} cycles={laptop.batteryCycles} />
             </div>
 
             <div className="detail-trust">
@@ -162,7 +157,22 @@ export default function ProductDetailPage() {
               </div>
             </div>
 
+            {laptop.refurbActions && laptop.refurbActions.length > 0 && (
+              <RefurbReport actions={laptop.refurbActions} />
+            )}
+
+            {laptop.physicalNotes && (
+              <div className="detail-notes-box">
+                <p className="detail-notes-box-title">Physical Notes</p>
+                <p className="detail-notes-box-text">{laptop.physicalNotes}</p>
+              </div>
+            )}
+
             <div className="detail-actions">
+              <button className="btn btn-primary btn-lg" onClick={() => setReserveOpen(true)} style={{ width: '100%', justifyContent: 'center' }}>
+                Reserve for In-Store Viewing
+              </button>
+              <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--color-text-light)', textAlign: 'center', margin: 0 }}>We will hold this laptop for 24 hours.</p>
               <a
                 href={`https://wa.me/${shop.whatsapp}?text=${waMsg}`}
                 target="_blank"
@@ -205,6 +215,8 @@ export default function ProductDetailPage() {
           </section>
         )}
       </div>
+
+      <ReserveModal isOpen={reserveOpen} onClose={() => setReserveOpen(false)} laptop={laptop} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { shop } from '../data/shop';
+import { shop } from '../lib/config';
 import { WhatsAppIcon } from '../components/ui/Icons';
 import './TrackOrderPage.css';
 

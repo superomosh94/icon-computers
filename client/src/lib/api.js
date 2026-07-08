@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
 
 async function request(endpoint, options = {}) {
   const config = {
@@ -98,6 +98,26 @@ export async function logout() {
 
 export async function getMe() {
   return request('/auth/me');
+}
+
+// ── Sections ──
+
+export async function getSections(params = {}) {
+  const qs = new URLSearchParams(params);
+  const q = qs.toString();
+  return request(`/sections${q ? `?${q}` : ''}`);
+}
+
+export async function createSection(data) {
+  return request('/sections', { method: 'POST', body: data });
+}
+
+export async function updateSection(id, data) {
+  return request(`/sections/${id}`, { method: 'PUT', body: data });
+}
+
+export async function deleteSection(id) {
+  return request(`/sections/${id}`, { method: 'DELETE' });
 }
 
 // ── Upload ──

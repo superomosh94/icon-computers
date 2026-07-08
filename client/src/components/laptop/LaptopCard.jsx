@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Badge from '../ui/Badge';
-import { shop } from '../../data/shop';
+import { shop } from '../../lib/config';
 import { WhatsAppIcon } from '../ui/Icons';
 import './LaptopCard.css';
 

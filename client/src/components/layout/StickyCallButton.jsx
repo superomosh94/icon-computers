@@ -1,4 +1,4 @@
-import { shop } from '../../data/shop';
+import { shop } from '../../lib/config';
 import { PhoneIcon } from '../ui/Icons';
 import './StickyCallButton.css';
 

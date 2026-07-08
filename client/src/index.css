@@ -48,21 +48,50 @@ input, select, textarea {
 }
 
 .section {
-  padding: var(--space-4xl) 0;
+  padding: var(--space-3xl) 0;
 }
 
 .section-title {
   font-size: var(--font-size-3xl);
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: var(--space-sm);
   color: var(--color-text);
   letter-spacing: -0.5px;
+  position: relative;
+  padding-bottom: var(--space-sm);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+.section-header .section-title::after {
+  left: 0;
+}
+
+.section-title--center {
+  text-align: center;
+  padding-bottom: var(--space-md);
+}
+
+.section-title--center::after {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 4px;
 }
 
 .section-subtitle {
   font-size: var(--font-size-lg);
   color: var(--color-text-secondary);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
 }
 
 /* Grade badges */
@@ -118,14 +147,15 @@ input, select, textarea {
 }
 
 .btn-primary {
-  background: var(--color-primary);
+  background: var(--color-accent);
   color: var(--color-white);
+  font-weight: 700;
 }
 
 .btn-primary:hover {
-  background: var(--color-primary-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(5, 170, 233, 0.3);
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.3);
 }
 
 .btn-secondary {
@@ -137,7 +167,8 @@ input, select, textarea {
 .btn-secondary:hover {
   border-color: var(--color-primary);
   color: var(--color-primary);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-outline {
@@ -147,8 +178,10 @@ input, select, textarea {
 }
 
 .btn-outline:hover {
-  background: var(--color-primary-light);
-  transform: translateY(-1px);
+  background: var(--color-primary);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-sm {

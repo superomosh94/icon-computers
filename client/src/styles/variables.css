@@ -1,17 +1,15 @@
 :root {
   /* Brand Colors */
-  --color-primary: #2596be;
-  --color-primary-light: #3aa8d0;
-  --color-primary-mid: #1a7a9e;
-  --color-primary-dark: #135e7a;
-  --color-accent: #05aae9;
-  --color-accent-hover: #0599d0;
-  --color-accent-light: #e5f7fe;
+  --color-primary: #1a7a9e;
+  --color-primary-light: #2596be;
+  --color-primary-mid: #135e7a;
+  --color-primary-dark: #0c465c;
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
+  --color-accent-light: #fef3c7;
   --color-secondary: #466d87;
-  --color-cyan-light: #92dcf0;
-  --color-cyan-mid: #48bde4;
-  --color-muted-blue: #9ab2c2;
 
+  /* Semantic */
   --color-green: #27ae60;
   --color-green-bg: #e8f8f0;
   --color-yellow: #d4a017;
@@ -26,14 +24,18 @@
   --color-good-bg: #fef9e7;
   --color-fair: #e67e22;
   --color-fair-bg: #fdf2e9;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #1ebe5d;
 
-  --color-bg: #f2f8f9;
+  /* Backgrounds */
+  --color-bg: #f5f7fa;
   --color-white: #ffffff;
-  --color-cream: #f7fafb;
-  --color-text: #1C1C1C;
-  --color-text-secondary: #466d87;
-  --color-text-light: #9ab2c2;
-  --color-border: #d5e3e9;
+  --color-cream: #fafbfc;
+  --color-surface: #ffffff;
+  --color-text: #1a1a2e;
+  --color-text-secondary: #4a5568;
+  --color-text-light: #a0aec0;
+  --color-border: #e2e8f0;
 
   /* Spacing */
   --space-xs: 4px;
@@ -55,7 +57,6 @@
   --font-size-2xl: 1.5rem;
   --font-size-3xl: 1.875rem;
   --font-size-4xl: 2.5rem;
-  --font-size-5xl: 3rem;
 
   /* Border radius */
   --radius-sm: 6px;
@@ -64,10 +65,10 @@
   --radius-xl: 16px;
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(37, 150, 190, 0.08);
-  --shadow-md: 0 4px 12px rgba(37, 150, 190, 0.1);
-  --shadow-lg: 0 8px 24px rgba(37, 150, 190, 0.12);
-  --shadow-xl: 0 16px 40px rgba(37, 150, 190, 0.15);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.12);
 
   /* Transitions */
   --transition: 0.2s ease;

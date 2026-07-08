@@ -134,6 +134,16 @@
   margin-bottom: var(--space-3xl);
 }
 
+.detail-gallery {
+  min-width: 0;
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
 .detail-header {
   display: flex;
   justify-content: space-between;
@@ -166,6 +176,7 @@
   font-size: var(--font-size-4xl);
   font-weight: 800;
   color: var(--color-primary);
+  line-height: 1.1;
 }
 
 .detail-original {
@@ -184,29 +195,6 @@
   padding: 4px 12px;
   border-radius: 4px;
   letter-spacing: 0.2px;
-}
-
-.detail-rating {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: var(--space-lg);
-  font-size: var(--font-size-sm);
-}
-
-.detail-rating .stars {
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-}
-
-.detail-rating .rating-value {
-  font-weight: 600;
-  margin-left: 4px;
-}
-
-.detail-rating .review-count {
-  color: var(--color-text-light);
 }
 
 .detail-badges {
@@ -234,35 +222,6 @@
 .detail-grade-box .badge {
   font-size: var(--font-size-sm);
   padding: 6px 16px;
-}
-
-.detail-quick-specs {
-  display: flex;
-  gap: var(--space-md);
-  margin-bottom: var(--space-lg);
-}
-
-.quick-spec {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: var(--space-sm) var(--space-md);
-  background: var(--color-bg);
-  border-radius: var(--radius-md);
-  min-width: 80px;
-}
-
-.quick-spec-label {
-  font-size: 0.65rem;
-  color: var(--color-text-light);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-weight: 600;
-}
-
-.quick-spec-value {
-  font-size: var(--font-size-sm);
-  font-weight: 600;
 }
 
 .detail-trust {
@@ -352,7 +311,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  background: #25D366;
+  background: var(--color-whatsapp);
   color: white;
   text-decoration: none;
   border: none;
@@ -366,20 +325,10 @@
 }
 
 .detail-wa-btn:hover {
-  background: #1ebe5d;
+  background: var(--color-whatsapp-hover);
   color: white;
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
-}
-
-.detail-low-stock {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-  font-size: var(--font-size-sm);
-  color: var(--color-red);
-  font-weight: 600;
-  margin-bottom: var(--space-md);
 }
 
 .detail-sections {
@@ -401,12 +350,6 @@
   font-weight: 700;
   margin-bottom: var(--space-md);
   color: var(--color-text);
-}
-
-.detail-notes {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-  line-height: 1.7;
 }
 
 /* Related Laptops section */

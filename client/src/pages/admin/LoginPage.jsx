@@ -61,6 +61,13 @@ export default function LoginPage() {
             Sign In
           </button>
         </form>
+
+        <div className="login-dev-info">
+          <button type="button" className="login-dev-btn" onClick={() => { setUsername('admin'); setPassword('admin123'); }}>
+            Dev Quick Fill
+          </button>
+          <span className="login-dev-creds">admin / admin123</span>
+        </div>
       </div>
     </div>
   );

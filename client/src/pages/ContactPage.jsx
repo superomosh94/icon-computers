@@ -1,4 +1,6 @@
-import { shop } from '../data/shop';
+import { useState } from 'react';
+import { shop } from '../lib/config';
+import ContactForm from '../components/ContactForm';
 import { MapPinIcon, PhoneIcon, MailIcon, ClockIcon, WhatsAppIcon } from '../components/ui/Icons';
 import './ContactPage.css';
 
@@ -58,21 +60,7 @@ export default function ContactPage() {
           </div>
           <div className="contact-form-wrapper">
             <h2 className="contact-form-title">Send us a Message</h2>
-            <p className="contact-form-info">
-              The fastest way to reach us is through WhatsApp. Our team responds within minutes.
-            </p>
-            <a
-              href={`https://wa.me/${shop.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-lg contact-wa-btn"
-            >
-              <WhatsAppIcon size={22} />
-              Send us a message on WhatsApp
-            </a>
-            <p className="contact-form-alt">
-              Or call us at <a href={`tel:${shop.phone}`} className="contact-link">{shop.phone}</a>
-            </p>
+            <ContactForm />
           </div>
         </div>
         <div className="contact-map">

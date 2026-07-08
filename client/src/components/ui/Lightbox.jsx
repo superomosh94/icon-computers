@@ -1,7 +1,7 @@
 import { useEffect, useCallback } from 'react';
 import './Lightbox.css';
 
-export default function Lightbox({ images, currentIndex, onClose, onPrev, onNext }) {
+export default function Lightbox({ images, currentIndex, alt, onClose, onPrev, onNext }) {
   const handleKey = useCallback((e) => {
     if (e.key === 'Escape') onClose();
     if (e.key === 'ArrowLeft') onPrev();
@@ -18,7 +18,7 @@ export default function Lightbox({ images, currentIndex, onClose, onPrev, onNext
   }, [handleKey]);
 
   return (
-    <div className="lightbox-overlay" onClick={onClose}>
+    <div className="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Image preview" onClick={onClose}>
       <button className="lightbox-close" onClick={onClose} aria-label="Close image">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
           <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>

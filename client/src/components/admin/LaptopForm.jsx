@@ -1,6 +1,5 @@
 import { useState, useRef } from 'react';
-import { brands, ramOptions } from '../../data/laptops';
-import { refurbActions } from '../../data/shop';
+import { brands, ramOptions, refurbActions } from '../../lib/config';
 import * as api from '../../lib/api';
 import './LaptopForm.css';
 

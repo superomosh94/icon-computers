@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import * as api from '../../lib/api';
 import { store } from '../../lib/adminStore';
 
 const statusBadge = (status) => {
@@ -21,7 +22,6 @@ export default function ReservationsPage() {
 
   const markAs = async (id, status) => {
     try {
-      const api = await import('../../lib/api');
       await api.updateReservation(id, { status });
     } catch { /* fallback handled by store */ }
     setReservations(prev =>

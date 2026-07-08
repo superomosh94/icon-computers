@@ -1,7 +1,7 @@
 export const shop = {
   name: "ICON",
-  tagline: "Quality Laptops. Honest Prices.",
-  subtitle: "Premium Laptops. Genuine Deals. Kenyan Trusted.",
+  tagline: "Quality Laptops. Honest Prices. Walk-in & Test.",
+  subtitle: "Every laptop inspected. Real photos. Real battery health. 6-month warranty.",
   phone: "+254 700 123 456",
   email: "info@iconshop.co.ke",
   address: "Moi Avenue, Nairobi, Kenya",
@@ -30,3 +30,11 @@ export const refurbActions = [
 ];
 
 export const includedItems = ["Laptop", "Charger", "Power cable"];
+
+export const brands = ["All", "Dell", "HP", "Lenovo", "Apple", "Acer", "Asus"];
+export const ramOptions = ["All", "8GB", "16GB", "32GB"];
+export const sortOptions = [
+  { value: "newest", label: "Newest First" },
+  { value: "price-asc", label: "Price: Low to High" },
+  { value: "price-desc", label: "Price: High to Low" },
+];

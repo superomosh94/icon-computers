@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { shop } from '../data/shop';
+import { shop } from '../lib/config';
 import { WhatsAppIcon } from '../components/ui/Icons';
 import './CartPage.css';
 

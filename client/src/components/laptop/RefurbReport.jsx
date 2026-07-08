@@ -1,4 +1,4 @@
-import { refurbActions } from '../../data/shop';
+import { refurbActions } from '../../lib/config';
 import './RefurbReport.css';
 
 function CheckIcon() {

@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { brands, ramOptions, sortOptions } from '../data/laptops';
+import { brands, ramOptions, sortOptions } from '../lib/config';
 import * as api from '../lib/api';
 import LaptopCard from '../components/laptop/LaptopCard';
 import Pagination from '../components/ui/Pagination';
@@ -51,7 +51,7 @@ export default function CatalogPage() {
   useEffect(() => {
     api.getLaptops({ status: 'Available', all: 'true' })
       .then(data => setAvailable(data.laptops))
-      .catch(() => import('../data/laptops').then(m => setAvailable(m.default.filter(l => l.status !== 'Sold'))));
+      .catch(() => setAvailable([]));
   }, []);
 
   useEffect(() => {
@@ -92,6 +92,8 @@ export default function CatalogPage() {
       brand: selectedBrands.length > 0 ? selectedBrands.join(',') : undefined,
       ram: selectedRam.length > 0 ? selectedRam.join(',') : undefined,
       storage: selectedStorage.length > 0 ? selectedStorage.join(',') : undefined,
+      priceMin: priceMin > 0 ? priceMin : undefined,
+      priceMax: priceMax < priceRange.max ? priceMax : undefined,
       page,
       limit: displayCount,
     };
@@ -102,26 +104,8 @@ export default function CatalogPage() {
         setTotal(data.total);
       })
       .catch(() => {
-        // Fallback: filter locally
-        import('../data/laptops').then(m => {
-          let result = m.default.filter(l => l.status !== 'Sold');
-          if (search) {
-            const q = search.toLowerCase();
-            result = result.filter(l => l.brand.toLowerCase().includes(q) || l.model.toLowerCase().includes(q) || l.cpuFull.toLowerCase().includes(q));
-          }
-          if (selectedBrands.length) result = result.filter(l => selectedBrands.includes(l.brand));
-          if (selectedRam.length) result = result.filter(l => selectedRam.includes(l.ram));
-          if (selectedStorage.length) result = result.filter(l => selectedStorage.includes(l.storage));
-          if (priceMin > 0) result = result.filter(l => l.price >= priceMin);
-          if (priceMax < priceRange.max) result = result.filter(l => l.price <= priceMax);
-          switch (sort) {
-            case 'price-asc': result.sort((a, b) => a.price - b.price); break;
-            case 'price-desc': result.sort((a, b) => b.price - a.price); break;
-            default: result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); break;
-          }
-          setTotal(result.length);
-          setLaptops(result.slice(0, displayCount));
-        });
+        setLaptops([]);
+        setTotal(0);
       })
       .finally(() => setLoading(false));
   }, [sort, selectedBrands, selectedRam, selectedStorage, priceMin, priceMax, search, page, displayCount, priceRange.max]);
@@ -361,6 +345,7 @@ export default function CatalogPage() {
                 setPage(1);
               }}
               className="catalog-sort"
+              aria-label="Sort by"
             >
               {sortOptions.map((o) => (
                 <option key={o.value} value={o.value}>

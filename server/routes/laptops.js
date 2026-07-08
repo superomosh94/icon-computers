@@ -74,6 +74,17 @@ router.get('/', async (req, res, next) => {
       where.push('flash_sale = true');
     }
 
+    const priceMinVal = req.query.priceMin;
+    const priceMaxVal = req.query.priceMax;
+    if (priceMinVal && !isNaN(priceMinVal)) {
+      where.push(`price >= $${paramIndex++}`);
+      params.push(parseFloat(priceMinVal));
+    }
+    if (priceMaxVal && !isNaN(priceMaxVal)) {
+      where.push(`price <= $${paramIndex++}`);
+      params.push(parseFloat(priceMaxVal));
+    }
+
     const whereClause = where.join(' AND ');
 
     // Get total count

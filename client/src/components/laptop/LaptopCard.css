@@ -9,7 +9,8 @@
 }
 
 .laptop-card:hover {
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
 }
 
 .laptop-card-link {
@@ -165,7 +166,7 @@
   justify-content: center;
   gap: var(--space-sm);
   padding: 10px var(--space-md);
-  background: #25D366;
+  background: var(--color-whatsapp);
   color: white;
   font-size: var(--font-size-sm);
   font-weight: 600;
@@ -176,6 +177,6 @@
 }
 
 .laptop-card-wa-btn:hover {
-  background: #1ebe5d;
+  background: var(--color-whatsapp-hover);
   color: white;
 }

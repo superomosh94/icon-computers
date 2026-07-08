@@ -15,10 +15,11 @@ import DashboardPage from './pages/admin/DashboardPage';
 import AddLaptopPage from './pages/admin/AddLaptopPage';
 import EditLaptopPage from './pages/admin/EditLaptopPage';
 import ProductsPage from './pages/admin/ProductsPage';
+import SectionsPage from './pages/admin/SectionsPage';
 import SiteContentPage from './pages/admin/SiteContentPage';
 import ShopSettingsPage from './pages/admin/ShopSettingsPage';
+import ReservationsPage from './pages/admin/ReservationsPage';
 import BestDealsPage from './pages/admin/BestDealsPage';
-import FlashSalesPage from './pages/admin/FlashSalesPage';
 
 export default function App() {
   return (
@@ -43,10 +44,11 @@ export default function App() {
           <Route path="/admin/products" element={<ProductsPage />} />
           <Route path="/admin/add" element={<AddLaptopPage />} />
           <Route path="/admin/edit/:id" element={<EditLaptopPage />} />
+          <Route path="/admin/sections" element={<SectionsPage />} />
           <Route path="/admin/site-content" element={<SiteContentPage />} />
           <Route path="/admin/shop-settings" element={<ShopSettingsPage />} />
+          <Route path="/admin/reservations" element={<ReservationsPage />} />
           <Route path="/admin/best-deals" element={<BestDealsPage />} />
-          <Route path="/admin/flash-sales" element={<FlashSalesPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
