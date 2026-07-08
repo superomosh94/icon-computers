@@ -37,7 +37,7 @@ const allowedOrigins = [
   'http://localhost:4173',
   process.env.CLIENT_URL,
   process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`,
-  'https://icon-computers.vercel.app',
+  'https://iconcomputerz.vercel.app',
 ].filter(Boolean);
 
 app.use(cors({
