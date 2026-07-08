@@ -13,9 +13,9 @@ export default function FlashSalesPage() {
     productIds: '',
   });
 
-  useEffect(() => {
-    setFlashSales(store.getFlashSales());
-  }, []);
+  const load = () => { store.getFlashSales().then(setFlashSales); };
+
+  useEffect(() => { load(); }, []);
 
   const showToast = (msg, type = 'success') => {
     setToast({ msg, type });
@@ -27,49 +27,42 @@ export default function FlashSalesPage() {
     setShowForm(false);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.name.trim()) {
       showToast('Sale name is required', 'error');
       return;
     }
-    const sale = {
-      id: Date.now(),
-      name: form.name.trim(),
-      discount: Number(form.discount) || 0,
-      startDate: form.startDate,
-      endDate: form.endDate,
-      productIds: form.productIds
-        .split(',')
-        .map((s) => s.trim())
-        .filter(Boolean)
-        .map(Number),
-      active: true,
-      createdAt: new Date().toISOString(),
-    };
-    store.saveFlashSale(sale);
-    setFlashSales(store.getFlashSales());
-    resetForm();
-    showToast('Flash sale "' + sale.name + '" created');
+    try {
+      await store.saveFlashSale({
+        name: form.name.trim(),
+        discountPercent: Number(form.discount) || 0,
+        startDate: form.startDate || null,
+        endDate: form.endDate || null,
+        productIds: form.productIds.split(',').map(s => s.trim()).filter(Boolean).map(Number),
+        isActive: true,
+      });
+      await load();
+      resetForm();
+      showToast('Flash sale created');
+    } catch { showToast('Failed to create', 'error'); }
   };
 
-  const toggleActive = (sale) => {
-    const updated = { ...sale, active: !sale.active };
-    store.saveFlashSale(updated);
-    setFlashSales((prev) =>
-      prev.map((f) => (f.id === sale.id ? updated : f))
-    );
-    showToast(
-      (updated.active ? 'Activated' : 'Deactivated') +
-        ' flash sale "' + sale.name + '"'
-    );
+  const toggleActive = async (sale) => {
+    try {
+      await store.saveFlashSale({ ...sale, isActive: !sale.isActive });
+      await load();
+      showToast((!sale.isActive ? 'Activated' : 'Deactivated') + ' flash sale "' + sale.name + '"');
+    } catch { showToast('Failed to update', 'error'); }
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     if (!window.confirm('Delete this flash sale permanently?')) return;
-    store.deleteFlashSale(id);
-    setFlashSales((prev) => prev.filter((f) => f.id !== id));
-    showToast('Flash sale deleted');
+    try {
+      await store.deleteFlashSale(id);
+      await load();
+      showToast('Flash sale deleted');
+    } catch { showToast('Failed to delete', 'error'); }
   };
 
   return (
@@ -190,7 +183,7 @@ export default function FlashSalesPage() {
               {flashSales.map((sale) => (
                 <tr key={sale.id}>
                   <td className="admin-cell-title">{sale.name}</td>
-                  <td>{sale.discount}%</td>
+                  <td>{sale.discountPercent}%</td>
                   <td className="admin-cell-date">
                     {sale.startDate
                       ? new Date(sale.startDate).toLocaleDateString()
@@ -207,8 +200,8 @@ export default function FlashSalesPage() {
                       : 'All'}
                   </td>
                   <td>
-                    <span className={'admin-badge ' + (sale.active ? 'admin-badge-green' : 'admin-badge-gray')}>
-                      {sale.active ? 'Active' : 'Inactive'}
+                    <span className={'admin-badge ' + (sale.isActive ? 'admin-badge-green' : 'admin-badge-gray')}>
+                      {sale.isActive ? 'Active' : 'Inactive'}
                     </span>
                   </td>
                   <td>

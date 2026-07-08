@@ -30,42 +30,64 @@ export const store = {
   },
 
   async getFlashSales() {
-    return [];
+    const data = await api.getFlashSales();
+    return data.flashSales;
   },
 
-  saveFlashSale() {},
-
-  deleteFlashSale() {},
-
-  getBestDeals() {
-    return [];
+  async saveFlashSale(sale) {
+    if (sale.id) {
+      await api.updateFlashSale(sale.id, sale);
+    } else {
+      await api.createFlashSale(sale);
+    }
   },
 
-  getShop() {
+  async deleteFlashSale(id) {
+    await api.deleteFlashSale(id);
+  },
+
+  async getShop() {
+    const data = await api.getShopSettings();
     return {
-      tagline: 'Premium Refurbished Laptops',
-      subtitle: 'Quality tested, certified pre-owned laptops at unbeatable prices',
-      aboutText: 'ICON Laptops is a premier refurbished laptop retailer...',
-      address: '123 Tech Street, Nairobi, Kenya',
-      phone: '+254 700 123 456',
-      email: 'info@iconlaptops.co.ke',
-      whatsapp: '+254 700 123 456',
-      hours: { 'Mon-Sat': '9:00 AM - 6:00 PM', Sun: 'Closed' },
-      social: { facebook: '', twitter: '', instagram: '' },
+      tagline: data.tagline || '',
+      subtitle: data.subtitle || '',
+      phone: data.phone || '',
+      email: data.email || '',
+      whatsapp: data.whatsapp || '',
+      address: data.address || '',
+      hours: data.hours || { 'Mon-Sat': '', 'Sun': '' },
     };
   },
 
-  saveShop() {},
+  async saveShopField(key, value) {
+    await api.updateShopSetting(key, value);
+  },
+
+  async saveShopFull(shop) {
+    const fields = ['tagline', 'subtitle', 'phone', 'email', 'whatsapp', 'address'];
+    for (const f of fields) {
+      if (shop[f] !== undefined) await api.updateShopSetting(f, shop[f]);
+    }
+    if (shop.hours) {
+      if (shop.hours['Mon-Sat'] !== undefined) await api.updateShopSetting('hours_Mon-Sat', shop.hours['Mon-Sat']);
+      if (shop.hours['Sun'] !== undefined) await api.updateShopSetting('hours_Sun', shop.hours['Sun']);
+    }
+  },
+
+  saveShop(shop) {
+    return this.saveShopFull(shop);
+  },
 
   async getStats() {
-    const [products, reservations] = await Promise.all([
+    const [products, reservations, flashSales] = await Promise.all([
       this.getProducts(),
       this.getReservations(),
+      this.getFlashSales(),
     ]);
     return {
       totalProducts: products.length,
       activeSales: products.filter((p) => p.onSale).length,
-      flashSalesRunning: 0,
+      flashSalesRunning: flashSales.filter((f) => f.isActive).length,
       pendingReservations: reservations.filter((r) => r.status === 'Pending').length,
     };
   },

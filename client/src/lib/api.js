@@ -86,6 +86,34 @@ export async function sendContactMessage(data) {
   return request('/contact', { method: 'POST', body: data });
 }
 
+// ── Flash Sales ──
+
+export async function getFlashSales() {
+  return request('/flash-sales');
+}
+
+export async function createFlashSale(data) {
+  return request('/flash-sales', { method: 'POST', body: data });
+}
+
+export async function updateFlashSale(id, data) {
+  return request(`/flash-sales/${id}`, { method: 'PUT', body: data });
+}
+
+export async function deleteFlashSale(id) {
+  return request(`/flash-sales/${id}`, { method: 'DELETE' });
+}
+
+// ── Shop Settings ──
+
+export async function getShopSettings() {
+  return request('/shop-settings');
+}
+
+export async function updateShopSetting(key, value) {
+  return request(`/shop-settings/${encodeURIComponent(key)}`, { method: 'PUT', body: { value } });
+}
+
 // ── Auth ──
 
 export async function login(username, password) {

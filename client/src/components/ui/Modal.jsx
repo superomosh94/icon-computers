@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { CloseIcon } from './Icons';
 import './Modal.css';
 
-export default function Modal({ isOpen, onClose, children }) {
+export default function Modal({ isOpen, onClose, wide, children }) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -26,7 +26,7 @@ export default function Modal({ isOpen, onClose, children }) {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+      <div className={'modal-content' + (wide ? ' modal-wide' : '')} onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
         <button className="modal-close" onClick={onClose} aria-label="Close modal">
           <CloseIcon />
         </button>

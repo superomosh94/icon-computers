@@ -160,8 +160,8 @@ export default function ProductsPage() {
                 <td className="admin-cell-date">{laptop.createdAt ? new Date(laptop.createdAt).toLocaleDateString() : '--'}</td>
                 <td>
                   <div className="admin-actions">
-                    <button className="btn btn-outline btn-sm" onClick={() => handleToggleSale(laptop)} title={laptop.onSale ? 'Remove from sale' : 'Put on sale'}>
-                      {laptop.onSale ? 'Sale On' : 'Sale Off'}
+                    <button className="btn btn-outline btn-sm" onClick={() => handleToggleSale(laptop)} title={laptop.onSale ? 'Remove from sale' : 'Put on sale'} style={{ color: laptop.onSale ? 'var(--color-green)' : 'var(--color-text-light)' }}>
+                      {laptop.onSale ? 'On Sale' : 'Not on Sale'}
                     </button>
                     <Link to={'/admin/edit/' + laptop.id} className="btn btn-outline btn-sm">Edit</Link>
                     <button className="btn btn-outline btn-sm" onClick={() => handleDuplicate(laptop)}>Clone</button>

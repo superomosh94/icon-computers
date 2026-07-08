@@ -15,11 +15,15 @@
   border-radius: var(--radius-lg);
   width: 100%;
   max-width: 500px;
-  max-height: 90vh;
+  max-height: 85vh;
   overflow-y: auto;
   padding: var(--space-xl);
   position: relative;
   animation: modalScaleIn 0.2s ease;
+}
+
+.modal-content.modal-wide {
+  max-width: 700px;
 }
 
 .modal-close {

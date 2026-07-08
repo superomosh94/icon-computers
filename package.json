@@ -1,0 +1,15 @@
+{
+  "name": "icon-shop",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run build --prefix client",
+    "db:init": "npm run db:init --prefix server",
+    "db:seed": "npm run db:seed --prefix server",
+    "setup": "npm install --prefix server && npm install --prefix client && npm run db:init --prefix server && npm run db:seed --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
