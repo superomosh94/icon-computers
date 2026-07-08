@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import pool from '../db/pool.js';
 import { requireAuth } from '../middleware/auth.js';
+import { getFallbackSections } from '../utils/fallback.js';
 
 const router = Router();
 
@@ -16,8 +17,11 @@ router.get('/', async (req, res, next) => {
     }
     const result = await pool.query(query);
     res.json({ sections: result.rows.map(formatSection) });
-  } catch (err) {
-    next(err);
+  } catch {
+    const fb = getFallbackSections();
+    const { all } = req.query;
+    const filtered = all === 'true' ? fb : fb.filter(s => s.isActive !== false);
+    res.json({ sections: filtered });
   }
 });
 

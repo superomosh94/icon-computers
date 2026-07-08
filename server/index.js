@@ -19,7 +19,7 @@ import shopSettingsRouter from './routes/shopSettings.js';
 import uploadRouter from './routes/upload.js';
 import { errorHandler } from './middleware/errorHandler.js';
 
-dotenv.config();
+try { dotenv.config(); } catch {} // .env optional on Vercel
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -104,8 +104,10 @@ app.get('/api/health', (req, res) => {
 // Error handler
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+}
 
 export default app;

@@ -9,7 +9,7 @@ const pool = new pg.Pool({
 
 pool.on('error', (err) => {
   console.error('Unexpected error on idle client', err);
-  process.exit(-1);
+  if (!process.env.VERCEL) process.exit(-1);
 });
 
 export default pool;

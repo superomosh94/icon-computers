@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import pool from '../db/pool.js';
 import { requireAuth } from '../middleware/auth.js';
+import { getFallbackShopSettings } from '../utils/fallback.js';
 
 const router = Router();
 
@@ -23,7 +24,10 @@ router.get('/', async (req, res, next) => {
         'Sun': settings['hours_Sun'] || '',
       },
     });
-  } catch (err) { next(err); }
+  } catch {
+    const fb = getFallbackShopSettings();
+    res.json(fb);
+  }
 });
 
 router.put('/:key', requireAuth, async (req, res, next) => {

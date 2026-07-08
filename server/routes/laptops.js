@@ -3,13 +3,13 @@ import pool from '../db/pool.js';
 import { generateSlug } from '../utils/slug.js';
 import { requireAuth } from '../middleware/auth.js';
 import { createError } from '../middleware/errorHandler.js';
+import { getFallbackLaptops } from '../utils/fallback.js';
 
 const router = Router();
 
 // GET /api/laptops — list available (with filters, sort, pagination)
 router.get('/', async (req, res, next) => {
   try {
-    const {
       status = 'Available',
       sort = 'newest',
       brand,

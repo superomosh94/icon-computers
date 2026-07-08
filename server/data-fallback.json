@@ -1,0 +1,146 @@
+{
+  "shopSettings": {
+    "tagline": "Quality Laptops. Honest Prices. Walk-in & Test.",
+    "subtitle": "Every laptop inspected. Real photos. Real battery health. 6-month warranty.",
+    "phone": "+254 700 123 456",
+    "email": "info@iconshop.co.ke",
+    "whatsapp": "254700123456",
+    "address": "Moi Avenue, Nairobi, Kenya",
+    "hours": { "Mon-Sat": "9:00 AM - 7:00 PM", "Sun": "Closed" }
+  },
+  "sections": [
+    { "sectionType": "hero", "title": "Quality Laptops. Honest Prices. Walk-in & Test.", "subtitle": "Every laptop inspected. Real photos. Real battery health. 6-month warranty.", "sortOrder": 1 },
+    { "sectionType": "carousel", "title": "", "subtitle": "", "sortOrder": 2 },
+    { "sectionType": "flash-deals", "title": "Flash Deals", "subtitle": "Limited stock at unbeatable prices - first come, first served", "sortOrder": 3 },
+    { "sectionType": "showcase", "title": "Browse All Laptops", "subtitle": "Every unit shown is in stock and ready for inspection", "sortOrder": 4 },
+    { "sectionType": "deals", "title": "Best Value Picks", "subtitle": "Quality laptops at prices that make sense", "sortOrder": 5 },
+    { "sectionType": "top-picks", "title": "Top Picks", "subtitle": "Hand-picked for the best bang for your buck", "sortOrder": 6 },
+    { "sectionType": "new-arrivals", "title": "New Stock Alert", "subtitle": "Freshly inspected and ready for a new home", "sortOrder": 7 },
+    { "sectionType": "top-rated", "title": "Top Rated", "subtitle": "Our highest rated laptops", "sortOrder": 8 },
+    { "sectionType": "brands", "title": "Browse by Brand", "subtitle": "Find your trusted brand - Dell, HP, Lenovo, Apple, and more", "sortOrder": 9 },
+    { "sectionType": "benefits", "title": "Why Shop With ICON", "subtitle": "We make buying a laptop simple and safe", "sortOrder": 10 },
+    { "sectionType": "location", "title": "Visit Our Shop", "subtitle": "Come see us on Moi Avenue. All laptops available for in-person testing.", "sortOrder": 11 }
+  ],
+  "laptops": [
+    {
+      "id": 1, "brand": "Dell", "model": "XPS 15 9560", "slug": "dell-xps-15-9560",
+      "cpuBrand": "Intel", "cpuModel": "Core i7", "cpuGeneration": "7th Gen", "cpuFull": "i7-7700HQ", "cpuCores": 4, "cpuBaseClock": "2.8 GHz", "cpuBoostClock": "3.8 GHz",
+      "ram": "16GB", "storage": "512GB SSD", "screenSize": "15.6\"", "screenResolution": "1920x1080", "gpu": "NVIDIA GeForce GTX 1050", "os": "Windows 11 Pro",
+      "price": 649, "originalPrice": 1899, "grade": "Excellent", "batteryHealth": 87, "batteryCycles": 220,
+      "physicalNotes": "Minor shine on spacebar. Small scuff on right corner.",
+      "refurbActions": ["thermal_paste","fans_cleaned","fresh_os","ports_tested","keyboard_tested","screen_checked"],
+      "includedItems": ["Laptop","Charger","Power cable"],
+      "status": "Available", "onSale": true, "discountPercent": 15, "flashSale": true, "featured": true,
+      "rating": 4.7, "reviewCount": 24, "inStock": true, "stock": 3,
+      "images": ["https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1504707748692-419802cf939d?w=800&h=600&fit=crop"]
+    },
+    {
+      "id": 2, "brand": "Lenovo", "model": "ThinkPad X1 Carbon Gen 9", "slug": "lenovo-thinkpad-x1-carbon-gen-9",
+      "cpuBrand": "Intel", "cpuModel": "Core i5", "cpuGeneration": "11th Gen", "cpuFull": "i5-1135G7", "cpuCores": 4, "cpuBaseClock": "2.4 GHz", "cpuBoostClock": "4.2 GHz",
+      "ram": "16GB", "storage": "256GB SSD", "screenSize": "14\"", "screenResolution": "1920x1200", "gpu": "Intel Iris Xe Graphics", "os": "Windows 11 Pro",
+      "price": 749, "originalPrice": 1649, "grade": "Mint", "batteryHealth": 94, "batteryCycles": 98,
+      "physicalNotes": "",
+      "refurbActions": ["fresh_os","ports_tested","keyboard_tested","screen_checked"],
+      "includedItems": ["Laptop","Charger"],
+      "status": "Available", "onSale": true, "discountPercent": 10, "flashSale": false, "featured": true,
+      "rating": 4.9, "reviewCount": 18, "inStock": true, "stock": 2,
+      "images": ["https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1551033406-36a7c7d2ca1b?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1504707748692-419802cf939d?w=800&h=600&fit=crop"]
+    },
+    {
+      "id": 3, "brand": "HP", "model": "EliteBook 840 G8", "slug": "hp-elitebook-840-g8",
+      "cpuBrand": "Intel", "cpuModel": "Core i7", "cpuGeneration": "11th Gen", "cpuFull": "i7-1165G7", "cpuCores": 4, "cpuBaseClock": "2.8 GHz", "cpuBoostClock": "4.7 GHz",
+      "ram": "16GB", "storage": "512GB SSD", "screenSize": "14\"", "screenResolution": "1920x1080", "gpu": "Intel Iris Xe Graphics", "os": "Windows 11 Pro",
+      "price": 599, "originalPrice": 1499, "grade": "Good", "batteryHealth": 78, "batteryCycles": 340,
+      "physicalNotes": "Keyboard has slight wear on left shift key.",
+      "refurbActions": ["fans_cleaned","fresh_os","ports_tested","keyboard_tested"],
+      "includedItems": ["Laptop","Charger","Power cable"],
+      "status": "Available", "onSale": false, "discountPercent": 0, "flashSale": false, "featured": true,
+      "rating": 4.5, "reviewCount": 31, "inStock": true, "stock": 5,
+      "images": ["https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1551033406-36a7c7d2ca1b?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1504707748692-419802cf939d?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1567016432779-094069958ea5?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=800&h=600&fit=crop"]
+    },
+    {
+      "id": 4, "brand": "Apple", "model": "MacBook Pro 14\" M1 Pro", "slug": "macbook-pro-14-m1-pro",
+      "cpuBrand": "Apple", "cpuModel": "M1 Pro", "cpuGeneration": "N/A", "cpuFull": "Apple M1 Pro", "cpuCores": 10, "cpuBaseClock": "N/A", "cpuBoostClock": "N/A",
+      "ram": "16GB", "storage": "512GB SSD", "screenSize": "14.2\"", "screenResolution": "3024x1964", "gpu": "Apple 16-core GPU", "os": "macOS Sonoma",
+      "price": 1299, "originalPrice": 1999, "grade": "Excellent", "batteryHealth": 91, "batteryCycles": 145,
+      "physicalNotes": "",
+      "refurbActions": ["fresh_os","ports_tested","keyboard_tested","screen_checked"],
+      "includedItems": ["Laptop","Charger (USB-C)","Power cable"],
+      "status": "Available", "featured": true,
+      "rating": 4.8, "reviewCount": 42, "inStock": true, "stock": 1,
+      "images": ["https://images.unsplash.com/photo-1504707748692-419802cf939d?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1567016432779-094069958ea5?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1603302576837-37561b4b0b92?w=800&h=600&fit=crop"]
+    },
+    {
+      "id": 5, "brand": "Dell", "model": "Latitude 7420", "slug": "dell-latitude-7420",
+      "cpuBrand": "Intel", "cpuModel": "Core i5", "cpuGeneration": "11th Gen", "cpuFull": "i5-1145G7", "cpuCores": 4, "cpuBaseClock": "2.6 GHz", "cpuBoostClock": "4.4 GHz",
+      "ram": "8GB", "storage": "256GB SSD", "screenSize": "14\"", "screenResolution": "1920x1080", "gpu": "Intel Iris Xe Graphics", "os": "Windows 11 Pro",
+      "price": 449, "originalPrice": 1199, "grade": "Good", "batteryHealth": 72, "batteryCycles": 410,
+      "physicalNotes": "Small dent on bottom cover.",
+      "refurbActions": ["fans_cleaned","fresh_os","ports_tested","keyboard_tested"],
+      "includedItems": ["Laptop","Charger"],
+      "status": "Available", "onSale": true, "discountPercent": 20,
+      "rating": 4.3, "reviewCount": 15, "inStock": true, "stock": 7,
+      "images": ["https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1603302576837-37561b4b0b92?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop"]
+    },
+    {
+      "id": 6, "brand": "Lenovo", "model": "ThinkPad T490", "slug": "lenovo-thinkpad-t490",
+      "cpuBrand": "Intel", "cpuModel": "Core i5", "cpuGeneration": "8th Gen", "cpuFull": "i5-8265U", "cpuCores": 4, "cpuBaseClock": "1.6 GHz", "cpuBoostClock": "3.9 GHz",
+      "ram": "8GB", "storage": "256GB SSD", "screenSize": "14\"", "screenResolution": "1920x1080", "gpu": "Intel UHD Graphics 620", "os": "Windows 11 Pro",
+      "price": 349, "originalPrice": 999, "grade": "Good", "batteryHealth": 65, "batteryCycles": 520,
+      "physicalNotes": "Rubber feet missing on one corner.",
+      "refurbActions": ["fresh_os","ports_tested","keyboard_tested"],
+      "includedItems": ["Laptop","Charger"],
+      "status": "Available",
+      "rating": 4.1, "reviewCount": 8, "inStock": true, "stock": 4,
+      "images": ["https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1603302576837-37561b4b0b92?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1600267185393-e158a98703de?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop"]
+    },
+    {
+      "id": 7, "brand": "HP", "model": "Pavilion 15", "slug": "hp-pavilion-15",
+      "cpuBrand": "AMD", "cpuModel": "Ryzen 5", "cpuGeneration": "5th Gen", "cpuFull": "Ryzen 5 5500U", "cpuCores": 6, "cpuBaseClock": "2.1 GHz", "cpuBoostClock": "4.0 GHz",
+      "ram": "8GB", "storage": "512GB SSD", "screenSize": "15.6\"", "screenResolution": "1920x1080", "gpu": "AMD Radeon Graphics", "os": "Windows 11 Home",
+      "price": 399, "originalPrice": 849, "grade": "Excellent", "batteryHealth": 88, "batteryCycles": 180,
+      "physicalNotes": "",
+      "refurbActions": ["thermal_paste","fans_cleaned","fresh_os","ports_tested","keyboard_tested","screen_checked"],
+      "includedItems": ["Laptop","Charger","Power cable"],
+      "status": "Available", "onSale": true, "discountPercent": 12, "flashSale": true, "featured": true,
+      "rating": 4.6, "reviewCount": 20, "inStock": true, "stock": 6,
+      "images": ["https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1600267185393-e158a98703de?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1587614382348-2c3c25d1c7a0?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&h=600&fit=crop"]
+    },
+    {
+      "id": 8, "brand": "Asus", "model": "ZenBook 14 UX425", "slug": "asus-zenbook-14-ux425",
+      "cpuBrand": "Intel", "cpuModel": "Core i7", "cpuGeneration": "10th Gen", "cpuFull": "i7-1065G7", "cpuCores": 4, "cpuBaseClock": "1.3 GHz", "cpuBoostClock": "3.9 GHz",
+      "ram": "16GB", "storage": "512GB SSD", "screenSize": "14\"", "screenResolution": "1920x1080", "gpu": "Intel Iris Plus Graphics", "os": "Windows 11 Pro",
+      "price": 549, "originalPrice": 1299, "grade": "Excellent", "batteryHealth": 84, "batteryCycles": 260,
+      "physicalNotes": "Light wear on trackpad surface.",
+      "refurbActions": ["thermal_paste","fans_cleaned","fresh_os","ports_tested","keyboard_tested"],
+      "includedItems": ["Laptop","Charger (USB-C)"],
+      "status": "Available",
+      "rating": 4.4, "reviewCount": 12, "inStock": true, "stock": 2,
+      "images": ["https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1587614382348-2c3c25d1c7a0?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&h=600&fit=crop"]
+    },
+    {
+      "id": 9, "brand": "Apple", "model": "MacBook Air M2", "slug": "macbook-air-m2",
+      "cpuBrand": "Apple", "cpuModel": "M2", "cpuGeneration": "N/A", "cpuFull": "Apple M2", "cpuCores": 8, "cpuBaseClock": "N/A", "cpuBoostClock": "N/A",
+      "ram": "8GB", "storage": "256GB SSD", "screenSize": "13.6\"", "screenResolution": "2560x1664", "gpu": "Apple 8-core GPU", "os": "macOS Sonoma",
+      "price": 899, "originalPrice": 1099, "grade": "Mint", "batteryHealth": 97, "batteryCycles": 45,
+      "physicalNotes": "",
+      "refurbActions": ["fresh_os","ports_tested","keyboard_tested","screen_checked"],
+      "includedItems": ["Laptop","Charger (USB-C)","Power cable"],
+      "status": "Reserved",
+      "rating": 4.9, "reviewCount": 6, "inStock": false, "stock": 0,
+      "images": ["https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&h=600&fit=crop"]
+    },
+    {
+      "id": 10, "brand": "Dell", "model": "XPS 13 9310", "slug": "dell-xps-13-9310",
+      "cpuBrand": "Intel", "cpuModel": "Core i7", "cpuGeneration": "11th Gen", "cpuFull": "i7-1185G7", "cpuCores": 4, "cpuBaseClock": "3.0 GHz", "cpuBoostClock": "4.8 GHz",
+      "ram": "16GB", "storage": "512GB SSD", "screenSize": "13.4\"", "screenResolution": "1920x1200", "gpu": "Intel Iris Xe Graphics", "os": "Windows 11 Pro",
+      "price": 799, "originalPrice": 1799, "grade": "Mint", "batteryHealth": 95, "batteryCycles": 65,
+      "physicalNotes": "",
+      "refurbActions": ["thermal_paste","fans_cleaned","fresh_os","ports_tested","keyboard_tested","screen_checked"],
+      "includedItems": ["Laptop","Charger (USB-C)","Power cable","Sleeve case"],
+      "status": "Sold",
+      "rating": 4.8, "reviewCount": 35, "inStock": false, "stock": 0,
+      "images": ["https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&h=600&fit=crop","https://images.unsplash.com/photo-1504707748692-419802cf939d?w=800&h=600&fit=crop"]
+    }
+  ]
+}
