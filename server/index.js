@@ -68,6 +68,16 @@ app.use(session({
 // Static files (uploaded images)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// In production, serve the built frontend
+if (process.env.NODE_ENV === 'production') {
+  const clientDist = path.join(__dirname, '..', 'client', 'dist');
+  app.use(express.static(clientDist));
+  app.get('*', (req, res) => {
+    if (req.path.startsWith('/api')) return;
+    res.sendFile(path.join(clientDist, 'index.html'));
+  });
+}
+
 // API routes
 app.use('/api/laptops', laptopsRouter);
 app.use('/api/reservations', reservationsRouter);
