@@ -1,0 +1,30 @@
+.sticky-call {
+  display: none;
+  position: fixed;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 14px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  box-shadow: 0 4px 16px rgba(26, 115, 232, 0.4);
+  z-index: 90;
+  gap: var(--space-sm);
+  align-items: center;
+  transition: var(--transition);
+  line-height: 1.2;
+}
+
+.sticky-call:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 115, 232, 0.5);
+  color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+  .sticky-call {
+    display: inline-flex;
+  }
+}

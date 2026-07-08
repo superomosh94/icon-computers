@@ -1,0 +1,130 @@
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.contact-info {
+  display: grid;
+  gap: var(--space-lg);
+  align-content: start;
+}
+
+.contact-item {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.contact-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(37, 150, 190, 0.08);
+  border-radius: var(--radius-md);
+}
+
+.contact-icon--wa {
+  background: rgba(37, 211, 102, 0.12);
+}
+
+.contact-icon--wa svg {
+  fill: #25D366;
+}
+
+.contact-item strong {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.contact-text {
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+}
+
+.contact-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+.contact-link--wa {
+  color: #25D366;
+}
+
+.contact-form-wrapper {
+  background: var(--color-white);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.contact-form-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+}
+
+.contact-form-info {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-lg);
+  line-height: 1.6;
+}
+
+.contact-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  border: none;
+  padding: 16px 32px;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+.contact-wa-btn:hover {
+  background: #1ebe5d;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}
+
+.contact-form-alt {
+  margin-top: var(--space-lg);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.contact-map {
+  margin-top: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

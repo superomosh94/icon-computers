@@ -1,0 +1,181 @@
+.laptop-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.laptop-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.laptop-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.laptop-card-link:hover .laptop-card-image img {
+  transform: scale(1.05);
+}
+
+.laptop-card-image {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.laptop-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.laptop-card-discount-badge {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  z-index: 2;
+  background: #e74c3c;
+  color: var(--color-white);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  line-height: 1.2;
+}
+
+.laptop-card-status-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.laptop-card-oos-stamp {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #fff;
+  background: rgba(231, 76, 60, 0.85);
+  padding: 6px 20px;
+  transform: rotate(-12deg);
+  border: 2px solid #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.laptop-card-flash-badge {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  z-index: 3;
+  background: #e74c3c;
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  animation: flashPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes flashPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.laptop-card-body {
+  padding: var(--space-md);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.laptop-card-title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Spec chips */
+.laptop-card-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.laptop-card-chip {
+  background: #e5f7fe;
+  color: #05aae9;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid #b3e5f7;
+  line-height: 1.4;
+}
+
+/* Price row */
+.laptop-card-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-xs);
+}
+
+.laptop-card-price-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.laptop-card-price {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: #05aae9;
+  line-height: 1.2;
+}
+
+.laptop-card-original {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  text-decoration: line-through;
+  line-height: 1.2;
+}
+
+
+
+/* WhatsApp button */
+.laptop-card-wa-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 10px var(--space-md);
+  background: #25D366;
+  color: white;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.laptop-card-wa-btn:hover {
+  background: #1ebe5d;
+  color: white;
+}

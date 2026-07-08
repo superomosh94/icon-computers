@@ -1,0 +1,30 @@
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.specs-table tr {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.specs-table tr:last-child {
+  border-bottom: none;
+}
+
+.specs-row-even {
+  background: var(--color-bg);
+}
+
+.specs-label {
+  padding: 12px 16px 12px 0;
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  width: 40%;
+  vertical-align: top;
+}
+
+.specs-value {
+  padding: 12px 0;
+  font-size: var(--font-size-sm);
+}

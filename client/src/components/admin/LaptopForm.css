@@ -1,0 +1,116 @@
+/* Admin form */
+.admin-form {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-form-section {
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin-form-section:last-child {
+  border-bottom: none;
+  margin-bottom: var(--space-lg);
+  padding-bottom: 0;
+}
+
+.admin-form-section-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.admin-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.admin-form-checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.admin-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.admin-checkbox-label:hover {
+  background: rgba(26, 115, 232, 0.04);
+}
+
+.admin-form-actions {
+  display: flex;
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+}
+
+.form-group {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.form-group label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px 16px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  transition: var(--transition);
+  background: var(--color-white);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+}
+
+.form-error {
+  font-size: var(--font-size-sm);
+  color: var(--color-red);
+}
+
+.admin-success-state {
+  text-align: center;
+  padding: var(--space-3xl);
+}
+
+.admin-success-state h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.admin-success-state p {
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+  .admin-form-grid,
+  .admin-form-checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+}

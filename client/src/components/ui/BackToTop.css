@@ -1,0 +1,28 @@
+.back-to-top {
+  position: fixed;
+  bottom: var(--space-lg);
+  left: var(--space-lg);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-md);
+  z-index: 80;
+  transition: var(--transition);
+  animation: fadeIn 0.2s ease;
+}
+
+.back-to-top:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 80px;
+    left: var(--space-md);
+  }
+}
