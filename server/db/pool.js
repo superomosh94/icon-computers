@@ -1,10 +1,13 @@
 import pg from 'pg';
 import dotenv from 'dotenv';
 
-dotenv.config();
+try { dotenv.config(); } catch {}
 
 const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/icon_shop',
+  connectionTimeoutMillis: 5000,
+  idleTimeoutMillis: 10000,
+  max: 3,
 });
 
 pool.on('error', (err) => {
