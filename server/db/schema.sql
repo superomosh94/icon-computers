@@ -85,6 +85,25 @@ CREATE INDEX IF NOT EXISTS idx_laptops_flash_sale ON laptops(flash_sale) WHERE f
 CREATE INDEX IF NOT EXISTS idx_reservations_status ON reservations(status);
 CREATE INDEX IF NOT EXISTS idx_reservations_laptop_id ON reservations(laptop_id);
 
+CREATE TABLE IF NOT EXISTS flash_sales (
+  id            SERIAL PRIMARY KEY,
+  name          VARCHAR(200) NOT NULL,
+  discount_percent INTEGER DEFAULT 0,
+  start_date    DATE,
+  end_date      DATE,
+  product_ids   INTEGER[] DEFAULT '{}',
+  is_active     BOOLEAN DEFAULT true,
+  created_at    TIMESTAMPTZ DEFAULT NOW(),
+  updated_at    TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS shop_settings (
+  id            SERIAL PRIMARY KEY,
+  key           VARCHAR(100) UNIQUE NOT NULL,
+  value         TEXT NOT NULL DEFAULT '',
+  updated_at    TIMESTAMPTZ DEFAULT NOW()
+);
+
 CREATE TABLE IF NOT EXISTS site_sections (
   id            SERIAL PRIMARY KEY,
   section_type  VARCHAR(50) NOT NULL DEFAULT 'banner',
